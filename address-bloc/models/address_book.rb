@@ -40,4 +40,23 @@ class AddressBook
     end
   end
 
+  def binary_search(name)
+    low = 0
+    high = @entries.length - 1
+
+    while (low <= high) do
+      mid = (low + high) / 2
+      mid_name = entries[mid].name
+
+      if(name == mid_name)
+        return @entries[mid]
+      elsif name < mid_name
+        high = mid - 1
+      elsif name > mid_name
+        low = mid + 1
+      end
+    end
+    return nil
+  end
+
 end
