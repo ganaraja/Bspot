@@ -14,7 +14,8 @@ class MenuController
     puts "3  - Search for an entry"
     puts "4  - Import entries from a CSV"
     puts "5  - View Entry Number n"
-    puts "6  - Exit"
+    puts "6  - Detonate"
+    puts "7  - Exit"
 
     print "Enter your selection: "
 
@@ -43,6 +44,10 @@ class MenuController
         view_entry_by_n
         main_menu
       when 6
+        system "clear"
+        detonate
+        main_menu
+      when 7
         puts "Good-bye!"
         exit(0)
       else
@@ -50,6 +55,10 @@ class MenuController
         puts "Sorry, that is not a valid input"
         main_menu
     end
+  end
+
+  def detonate
+    @address_book.entries = []
   end
 
   def view_entry_by_n
